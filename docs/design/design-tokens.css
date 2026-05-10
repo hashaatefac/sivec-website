@@ -1,0 +1,285 @@
+/**
+ * SIVEC Design Tokens
+ * Single source of truth for all design values.
+ * Import this file once; reference via CSS custom properties everywhere.
+ *
+ * Stack: Next.js 16 · React 19 · Tailwind CSS v4 · TypeScript
+ * Font:  Almarai (Google Fonts) — Arabic/Latin bilingual support
+ */
+
+/* ─────────────────────────────────────────────
+   TAILWIND v4 THEME INTEGRATION
+   These values are surfaced as Tailwind utilities
+   via the @theme directive in globals.css.
+   ───────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* ── Brand Palette ─────────────────────── */
+
+    /* Teal (primary action / brand identity) */
+    --color-teal-50:  #e8f5f5;
+    --color-teal-100: #c5e8e7;
+    --color-teal-200: #9dd7d5;
+    --color-teal-300: #6ec4c2;
+    --color-teal-400: #48a9a6;   /* ← SIVEC Primary */
+    --color-teal-500: #3a8e8b;
+    --color-teal-600: #2d7370;
+    --color-teal-700: #1f5856;
+    --color-teal-800: #123e3c;
+    --color-teal-900: #062322;
+
+    /* Yellow-Lime (accent / selection / highlight) */
+    --color-yellow-50:  #fdfef2;
+    --color-yellow-100: #f9fce0;
+    --color-yellow-200: #f4f7d5;  /* ← Key accent */
+    --color-yellow-300: #e8ed9f;
+    --color-yellow-400: #d8e06a;
+    --color-yellow-500: #c2cb35;
+
+    /* Purple (secondary brand / tags / badges) */
+    --color-purple-50:  #f3f3fb;
+    --color-purple-100: #dedef7;  /* ← Light purple / hover */
+    --color-purple-200: #c8c8f0;
+    --color-purple-400: #a0a0d9;
+    --color-purple-600: #736795;  /* ← SIVEC Secondary */
+    --color-purple-800: #4a3f6e;
+    --color-purple-900: #2d2447;
+
+    /* Neutral (structure / text / backgrounds) */
+    --color-neutral-0:   #ffffff;
+    --color-neutral-50:  #f5f5f5;
+    --color-neutral-100: #e8e8e8;
+    --color-neutral-200: #c6c6c6;
+    --color-neutral-300: #adadad;
+    --color-neutral-400: #9b9b9b;
+    --color-neutral-500: #7a7a7a;
+    --color-neutral-600: #62615a;
+    --color-neutral-700: #444444;
+    --color-neutral-800: #2a2a2a;
+    --color-neutral-900: #171717;
+    --color-neutral-950: #0d0f14;  /* ← Dark section bg */
+
+    /* ── Semantic Aliases ──────────────────── */
+
+    /* Surfaces */
+    --surface-page:       var(--color-neutral-0);
+    --surface-subtle:     var(--color-neutral-50);
+    --surface-dark:       var(--color-neutral-950);
+    --surface-dark-raised: #14181f;
+    --surface-card:       var(--color-neutral-0);
+    --surface-card-dark:  #1a1e28;
+
+    /* Text */
+    --text-primary:       var(--color-neutral-900);
+    --text-secondary:     var(--color-neutral-600);
+    --text-muted:         var(--color-neutral-400);
+    --text-on-dark:       var(--color-neutral-0);
+    --text-on-dark-muted: rgba(255, 255, 255, 0.6);
+    --text-teal:          var(--color-teal-400);
+
+    /* Brand actions */
+    --brand-primary:        var(--color-teal-400);
+    --brand-primary-hover:  var(--color-teal-500);
+    --brand-primary-light:  #8dcfcd;
+    --brand-accent:         var(--color-yellow-200);
+    --brand-accent-hover:   var(--color-yellow-300);
+    --brand-secondary:      var(--color-purple-600);
+    --brand-secondary-light: var(--color-purple-100);
+
+    /* Borders */
+    --border-light:   rgba(0, 0, 0, 0.08);
+    --border-medium:  rgba(0, 0, 0, 0.14);
+    --border-dark-section: rgba(255, 255, 255, 0.10);
+
+    /* ── Typography ────────────────────────── */
+
+    --font-display: 'Almarai', sans-serif;
+    --font-body:    'Almarai', sans-serif;
+    --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+    /* Type scale (rem, base = 16px) */
+    --text-2xs:  0.675rem;   /*  10.8px — micro labels          */
+    --text-xs:   0.75rem;    /*  12px   — captions, metadata     */
+    --text-sm:   0.875rem;   /*  14px   — secondary copy         */
+    --text-base: 1rem;       /*  16px   — body                   */
+    --text-lg:   1.25rem;    /*  20px   — lead paragraph         */
+    --text-xl:   1.5rem;     /*  24px   — h4 / subheading        */
+    --text-2xl:  2rem;       /*  32px   — h3 / section heading   */
+    --text-3xl:  3rem;       /*  48px   — h2 / page heading      */
+    --text-4xl:  4rem;       /*  64px   — h1 / hero heading      */
+    --text-display: 10rem;   /* 160px   — stat / oversized       */
+
+    /* Line heights */
+    --leading-tight:   1.20;  /* headlines     */
+    --leading-snug:    1.25;  /* subheadings   */
+    --leading-normal:  1.40;  /* body text     */
+    --leading-relaxed: 1.50;  /* long-form     */
+
+    /* Letter spacing */
+    --tracking-tighter: -0.02em;
+    --tracking-tight:   -0.01em;
+    --tracking-normal:   0em;
+    --tracking-wide:     0.05em;
+    --tracking-wider:    0.10em;
+    --tracking-widest:   0.15em;
+
+    /* Font weights (Almarai supports 300 400 500 600 700) */
+    --weight-light:    300;
+    --weight-regular:  400;
+    --weight-medium:   500;
+    --weight-semibold: 600;
+    --weight-bold:     700;
+
+    /* ── Spacing Scale ─────────────────────── */
+    /* 4px base unit — powers of 2 + halves     */
+
+    --space-px:   1px;
+    --space-0-5:  0.125rem;   /*  2px  */
+    --space-1:    0.25rem;    /*  4px  */
+    --space-1-5:  0.375rem;   /*  6px  */
+    --space-2:    0.5rem;     /*  8px  */
+    --space-2-5:  0.625rem;   /* 10px  */
+    --space-3:    0.75rem;    /* 12px  */
+    --space-4:    1rem;       /* 16px  */
+    --space-5:    1.25rem;    /* 20px  */
+    --space-6:    1.5rem;     /* 24px  */
+    --space-7:    1.75rem;    /* 28px  */
+    --space-8:    2rem;       /* 32px  */
+    --space-10:   2.5rem;     /* 40px  */
+    --space-12:   3rem;       /* 48px  */
+    --space-14:   3.5rem;     /* 56px  */
+    --space-16:   4rem;       /* 64px  */
+    --space-20:   5rem;       /* 80px  */
+    --space-24:   6rem;       /* 96px  */
+    --space-28:   7rem;       /* 112px */
+    --space-32:   8rem;       /* 128px */
+
+    /* Section vertical rhythm */
+    --section-gap-sm:  4rem;    /* compact sections  */
+    --section-gap-md:  6.25rem; /* standard sections */
+    --section-gap-lg:  8rem;    /* spacious sections  */
+
+    /* ── Border Radius ─────────────────────── */
+
+    --radius-none: 0;
+    --radius-sm:   0.375rem;  /*  6px */
+    --radius-md:   0.5rem;    /*  8px */
+    --radius-lg:   0.75rem;   /* 12px */
+    --radius-xl:   1rem;      /* 16px */
+    --radius-2xl:  1.5rem;    /* 24px */
+    --radius-full: 9999px;
+
+    /* ── Elevation / Shadow ────────────────── */
+
+    --shadow-xs:   0 1px  3px  rgba(0, 0, 0, 0.06);
+    --shadow-sm:   0 2px  8px  rgba(0, 0, 0, 0.08);
+    --shadow-md:   0 4px  16px rgba(0, 0, 0, 0.10);
+    --shadow-lg:   0 8px  32px rgba(0, 0, 0, 0.12);
+    --shadow-xl:   0 16px 48px rgba(0, 0, 0, 0.16);
+
+    /* Brand-tinted shadows */
+    --shadow-teal: 0 4px 24px rgba(72, 169, 166, 0.25);
+    --shadow-teal-strong: 0 8px 40px rgba(72, 169, 166, 0.35);
+
+    /* ── Motion / Animation ────────────────── */
+
+    --duration-instant:  50ms;
+    --duration-fast:    150ms;
+    --duration-normal:  200ms;
+    --duration-slow:    300ms;
+    --duration-slower:  500ms;
+    --duration-slowest: 800ms;
+
+    --ease-linear:   linear;
+    --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);   /* spring-like exit     */
+    --ease-in:       cubic-bezier(0.4, 0, 1, 1);       /* accelerating entry   */
+    --ease-in-out:   cubic-bezier(0.45, 0, 0.55, 1);   /* balanced transition  */
+    --ease-bounce:   cubic-bezier(0.34, 1.56, 0.64, 1);/* subtle overshoot     */
+
+    /* ── Layout ────────────────────────────── */
+
+    --container-sm:  640px;
+    --container-md:  768px;
+    --container-lg:  1024px;
+    --container-xl:  1280px;
+    --container-2xl: 1360px;   /* matches reference max-width */
+
+    --navbar-height: 4.5rem;   /* 72px */
+
+    /* ── Z-index Scale ─────────────────────── */
+
+    --z-below:    -1;
+    --z-base:      0;
+    --z-raised:   10;
+    --z-dropdown: 100;
+    --z-sticky:   200;
+    --z-overlay:  300;
+    --z-modal:    400;
+    --z-toast:    500;
+  }
+
+  /* ── Dark Section Overrides ─────────────── */
+  /* Apply [data-theme="dark"] to any section   */
+  /* with a dark background.                    */
+  [data-theme="dark"] {
+    --surface-card:   var(--surface-card-dark);
+    --text-primary:   var(--text-on-dark);
+    --text-secondary: var(--text-on-dark-muted);
+    --border-light:   var(--border-dark-section);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SELECTION COLOR
+   ───────────────────────────────────────────── */
+
+::selection {
+  background: var(--color-yellow-200);
+  color: var(--color-neutral-900);
+}
+
+/* ─────────────────────────────────────────────
+   SMOOTH SCROLL + FONT RENDERING
+   ───────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Fluid type scaling matching the reference:
+     1rem at 1360px+, scales down to mobile */
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1360px) {
+  html { font-size: calc(0.85rem + 0.22vw); }
+}
+
+@media screen and (max-width: 767px) {
+  html { font-size: 0.9rem; }
+}
+
+@media screen and (max-width: 479px) {
+  html { font-size: calc(0.7rem + 0.85vw); }
+}
+
+/* ─────────────────────────────────────────────
+   FOCUS STYLES (accessibility)
+   ───────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL TRANSITION DEFAULTS
+   ───────────────────────────────────────────── */
+
+* {
+  transition-timing-function: var(--ease-out);
+}
