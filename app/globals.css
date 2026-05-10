@@ -1,26 +1,47 @@
 @import "tailwindcss";
+@import "../docs/design/design-tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ── Tailwind v4 Theme Integration ────────────────────────
+   Surface all design tokens as Tailwind utility classes.
+   Use e.g. `bg-brand`, `text-brand`, `border-accent` etc.
+   ──────────────────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fonts */
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  /* Brand color utilities */
+  --color-brand:               #48A9A6;
+  --color-brand-hover:         #3A8E8B;
+  --color-brand-light:         #8DCFCD;
+  --color-accent:              #F4F7D5;
+  --color-accent-hover:        #E8ED9F;
+  --color-secondary:           #736795;
+  --color-secondary-light:     #DEDEF7;
+
+  /* Surface utilities */
+  --color-surface-page:        #FFFFFF;
+  --color-surface-subtle:      #F5F5F5;
+  --color-surface-dark:        #0D0F14;
+  --color-surface-card:        #FFFFFF;
+  --color-surface-card-dark:   #1A1E28;
+
+  /* Text utilities */
+  --color-foreground:          #171717;
+  --color-foreground-muted:    #62615A;
+  --color-foreground-faint:    #9B9B9B;
+  --color-on-dark:             #FFFFFF;
+  --color-on-dark-muted:       rgba(255, 255, 255, 0.60);
+
+  /* Background default */
+  --color-background:          #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ── Base styles ──────────────────────────────────────── */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-display);
 }
