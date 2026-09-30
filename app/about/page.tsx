@@ -1,7 +1,6 @@
 import { PageHero } from '@/components/sections/PageHero';
 import { CompanyStory } from '@/components/sections/CompanyStory';
 import { ValuesSection } from '@/components/sections/ValuesSection';
-import { TeamSection } from '@/components/sections/TeamSection';
 import { CTABanner } from '@/components/sections/CTABanner';
 import type { Metadata } from 'next';
 
@@ -22,7 +21,6 @@ export default function AboutPage() {
       />
       <CompanyStory />
       <ValuesSection />
-      <TeamSection />
       <CTABanner
         title="Work with a team you can trust"
         description="Whether it's a complex engineering design or a full project management engagement, SIVEC brings expertise and integrity to every brief."

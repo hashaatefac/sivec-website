@@ -94,7 +94,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-[#171717]">Address</p>
-                  <p className="text-sm text-[#62615A]">Kadawatha, Western Province, Sri Lanka</p>
+                  <p className="text-sm text-[#62615A]">536, Bandaranayke Mawatha, Eldeniya, Kadawatha, Sri Lanka</p>
                 </div>
               </div>
 

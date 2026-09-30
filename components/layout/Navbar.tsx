@@ -6,15 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const presenceCompanies = [
-  'SIVEC Energy & Consultancy PTY LTD - Australia',
-  'SIVEC Engineering & Consultancy PVT LTD - Kenya',
-  'SIVEC Engineering Consultancy PVT LTD - Maldives',
-  'SIVEC Marine Engineering Pvt Ltd',
-  'SIVEC Auto Pvt Ltd',
-  'Innoverse Stem Pvt Ltd',
-];
+import { presenceCompanies } from '@/lib/presence';
 
 type NavItem =
   | { label: string; href: string }
@@ -68,10 +60,7 @@ export function Navbar() {
               src="/Sivec%20logo%20Whtie.png"
               alt="SIVEC Engineering"
               fill
-              className={cn(
-                'object-contain object-left transition-all duration-300',
-                scrolled ? 'brightness-0' : '',
-              )}
+              className="object-contain object-left"
               priority
             />
           </div>
