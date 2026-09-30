@@ -31,6 +31,7 @@ export function ContactSection() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState('');
 
   const update =
     (field: keyof FormState) =>
@@ -40,6 +41,7 @@ export function ContactSection() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus('loading');
+    setErrorDetail('');
 
     try {
       const res = await fetch('https://formsubmit.co/ajax/info@sivecengineering.com', {
@@ -57,9 +59,11 @@ export function ContactSection() {
         setStatus('success');
         setForm({ name: '', email: '', company: '', service: '', message: '' });
       } else {
+        setErrorDetail(data?.message ?? `Mail service responded with status ${res.status}.`);
         setStatus('error');
       }
-    } catch {
+    } catch (err) {
+      setErrorDetail(err instanceof Error ? err.message : 'Network error.');
       setStatus('error');
     }
   }
@@ -262,6 +266,7 @@ export function ContactSection() {
                   {status === 'error' && (
                     <p className="text-sm text-red-500">
                       Something went wrong. Please try again or email us directly.
+                      {errorDetail && <span className="mt-1 block text-xs text-red-400">{errorDetail}</span>}
                     </p>
                   )}
 
