@@ -42,14 +42,18 @@ export function ContactSection() {
     setStatus('loading');
 
     try {
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const res = await fetch('https://formsubmit.co/ajax/info@sivecengineering.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          _subject: `New website enquiry from ${form.name}`,
+          _template: 'table',
+        }),
       });
+      const data = await res.json().catch(() => null);
 
-      if (res.ok) {
+      if (res.ok && String(data?.success) === 'true') {
         setStatus('success');
         setForm({ name: '', email: '', company: '', service: '', message: '' });
       } else {
