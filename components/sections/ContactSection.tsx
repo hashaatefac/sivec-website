@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
+const WEB3FORMS_ACCESS_KEY = '23d09af7-c3ed-42a7-b61c-f63d8c8d51fd';
+
 interface FormState {
   name: string;
   email: string;
@@ -44,18 +46,19 @@ export function ContactSection() {
     setErrorDetail('');
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/info@sivecengineering.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          _subject: `New website enquiry from ${form.name}`,
-          _template: 'table',
-        }),
-      });
+      // Web3Forms delivers to info@sivecengineering.com. The access key is public by design.
+      // Sent as FormData (no custom headers) so the browser skips the CORS preflight,
+      // which Web3Forms rejects.
+      const body = new FormData();
+      body.append('access_key', WEB3FORMS_ACCESS_KEY);
+      body.append('subject', `New website enquiry from ${form.name}`);
+      body.append('from_name', 'SIVEC Website');
+      for (const [key, value] of Object.entries(form)) body.append(key, value);
+
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body });
       const data = await res.json().catch(() => null);
 
-      if (res.ok && String(data?.success) === 'true') {
+      if (res.ok && data?.success) {
         setStatus('success');
         setForm({ name: '', email: '', company: '', service: '', message: '' });
       } else {
