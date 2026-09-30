@@ -60,10 +60,7 @@ export function Navbar() {
               src="/Sivec%20logo%20Whtie.png"
               alt="SIVEC Engineering"
               fill
-              className={cn(
-                'object-contain object-left transition-all duration-300',
-                scrolled ? 'brightness-0' : '',
-              )}
+              className="object-contain object-left"
               priority
             />
           </div>
