@@ -1,33 +1,6 @@
 import Image from 'next/image';
 import { presenceCompanies } from '@/lib/presence';
 
-const milestones = [
-  {
-    year: '2009',
-    title: 'The Beginning',
-    description:
-      'Eng. Dilshan Rathnayake returns from the UK with a vision: to bring world-class engineering practice to Sri Lanka. He co-founds SIVEC with two colleagues in a small Colombo office.',
-  },
-  {
-    year: '2013',
-    title: 'Moving to Kadawatha',
-    description:
-      'Growing demand from the Colombo industrial corridor prompts a move to Kadawatha. The new office allows SIVEC to serve manufacturers and infrastructure developers more efficiently.',
-  },
-  {
-    year: '2018',
-    title: 'Energy Management Division',
-    description:
-      'After completing a landmark ISO 50001:2011 certification project, SIVEC formally launches its Energy Management division, offering comprehensive audits and monitoring systems.',
-  },
-  {
-    year: '2022',
-    title: 'Expanding into Construction',
-    description:
-      'From design to delivery — SIVEC takes on full engineering construction projects, including pre-fabricated steel buildings and pipeline works, completing the full project lifecycle.',
-  },
-];
-
 export function CompanyStory() {
   return (
     <section className="bg-white py-[6.25rem]">
@@ -64,26 +37,8 @@ export function CompanyStory() {
           </div>
         </div>
 
-        {/* Timeline */}
-        <div>
-          <p className="mb-10 text-xs font-bold uppercase tracking-[0.15em] text-[#48A9A6]">
-            Milestones
-          </p>
-          <div className="grid gap-px bg-[#E8E8E8] rounded-xl overflow-hidden sm:grid-cols-2 lg:grid-cols-4">
-            {milestones.map((m) => (
-              <div key={m.year} className="flex flex-col gap-4 bg-white px-8 py-10">
-                <span className="text-[3rem] font-[300] leading-none tracking-[-0.03em] text-[#48A9A6]">
-                  {m.year}
-                </span>
-                <h3 className="text-base font-bold text-[#171717]">{m.title}</h3>
-                <p className="text-sm leading-relaxed text-[#62615A]">{m.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Our Presence */}
-        <div className="mt-20">
+        <div>
           <p className="mb-10 text-xs font-bold uppercase tracking-[0.15em] text-[#48A9A6]">
             Our Presence
           </p>
