@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { presenceCompanies } from '@/lib/presence';
 
 const milestones = [
   {
@@ -78,6 +79,27 @@ export function CompanyStory() {
                 <p className="text-sm leading-relaxed text-[#62615A]">{m.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Our Presence */}
+        <div className="mt-20">
+          <p className="mb-10 text-xs font-bold uppercase tracking-[0.15em] text-[#48A9A6]">
+            Our Presence
+          </p>
+          <div className="grid gap-px bg-[#E8E8E8] rounded-xl overflow-hidden sm:grid-cols-2 lg:grid-cols-3">
+            {presenceCompanies.map((company, i) => {
+              const [name, country] = company.split(' - ');
+              return (
+                <div key={company} className="flex flex-col gap-4 bg-white px-8 py-10">
+                  <span className="text-[3rem] font-[300] leading-none tracking-[-0.03em] text-[#48A9A6]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-base font-bold text-[#171717]">{name}</h3>
+                  {country && <p className="text-sm leading-relaxed text-[#62615A]">{country}</p>}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
